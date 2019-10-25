@@ -31,7 +31,8 @@ defmodule AdminStuff.MixProject do
   defp deps do
     [
       {:cloudex, "~> 1.3"},
-      {:ecto_sql, "~> 3.1"}
+      {:ecto_sql, "~> 3.1"},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 end
