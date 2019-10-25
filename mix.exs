@@ -30,7 +30,7 @@ defmodule AdminStuff.MixProject do
 
   defp deps do
     [
-      {:cloudex, github: "marceldegraaf/cloudex"},
+      {:cloudex, "~> 1.3"},
       {:ecto_sql, "~> 3.1"}
     ]
   end
