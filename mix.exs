@@ -20,6 +20,7 @@ defmodule AdminStuff.MixProject do
 
   defp package do
     [
+      organization: "buhar",
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["Andrey Zaika"],
       licenses: ["MIT"],
