@@ -11,7 +11,7 @@ defmodule AdminStuff.View.General do
             content_tag(:i, gettext("Delete"), class: "mdi mdi-delete"),
             class: "btn btn-icon btn-danger btn-round btn-sm",
             phx_click: "delete",
-            phx_value_id: apply(unquote(entity), :id),
+            phx_value_id: unquote(entity).id,
             data_confirm: gettext("Are you sure?")
           )
 
@@ -26,67 +26,50 @@ defmodule AdminStuff.View.General do
     end
   end
 
-  # def lv_delete_btn(entity, current_user) do
-  #   case can?(current_user, :delete, entity) do
-  #     true ->
-  #       content_tag(
-  #         :button,
-  #         content_tag(:i, Gettext.gettext("Delete"), class: "mdi mdi-delete"),
-  #         class: "btn btn-icon btn-danger btn-round btn-sm",
-  #         phx_click: "delete",
-  #         phx_value_id: entity.id,
-  #         data_confirm: Gettext.gettext("Are you sure?")
-  #       )
+  defmacro lv_edit_btn(entity, current_user) do
+    quote do
+      case can?(unquote(current_user), :edit, unquote(entity)) do
+        true ->
+          content_tag(
+            :button,
+            content_tag(:i, Gettext.gettext("Edit"), class: "mdi mdi-pencil"),
+            class: "btn btn-icon btn-info btn-round btn-sm",
+            phx_click: "edit",
+            phx_value_id: entity.id
+          )
 
-  #     _ ->
-  #       content_tag(
-  #         :button,
-  #         content_tag(:i, "", class: "mdi mdi-delete"),
-  #         class: "btn btn-icon btn-danger btn-round btn-sm",
-  #         disabled: ""
-  #       )
-  #   end
-  # end
+        _ ->
+          content_tag(
+            :button,
+            content_tag(:i, "", class: "mdi mdi-pencil"),
+            class: "btn btn-icon btn-info btn-round btn-sm",
+            disabled: ""
+          )
+      end
+    end
+  end
 
-  # def lv_edit_btn(entity, current_user) do
-  #   case can?(current_user, :edit, entity) do
-  #     true ->
-  #       content_tag(
-  #         :button,
-  #         content_tag(:i, Gettext.gettext("Edit"), class: "mdi mdi-pencil"),
-  #         class: "btn btn-icon btn-info btn-round btn-sm",
-  #         phx_click: "edit",
-  #         phx_value_id: entity.id
-  #       )
+  defmacro lv_copy_btn(entity, current_user) do
+    quote do
+      case can?(unquote(current_user), :copy, unquote(entity)) do
+        true ->
+          content_tag(
+            :button,
+            content_tag(:i, "", class: "mdi mdi-content-copy"),
+            class: "btn btn-icon btn-success btn-round btn-sm",
+            phx_click: "copy",
+            phx_value_id: entity.id
+          )
 
-  #     _ ->
-  #       content_tag(
-  #         :button,
-  #         content_tag(:i, "", class: "mdi mdi-pencil"),
-  #         class: "btn btn-icon btn-info btn-round btn-sm",
-  #         disabled: ""
-  #       )
-  #   end
-  # end
+        _ ->
+          content_tag(
+            :button,
+            content_tag(:i, "", class: "mdi mdi-content-copy"),
+            class: "btn btn-icon btn-success btn-round btn-sm",
+            disabled: ""
+          )
+      end
+    end
+  end
 
-  # def lv_copy_btn(entity, current_user) do
-  #   case can?(current_user, :copy, entity) do
-  #     true ->
-  #       content_tag(
-  #         :button,
-  #         content_tag(:i, "", class: "mdi mdi-content-copy"),
-  #         class: "btn btn-icon btn-success btn-round btn-sm",
-  #         phx_click: "copy",
-  #         phx_value_id: entity.id
-  #       )
-
-  #     _ ->
-  #       content_tag(
-  #         :button,
-  #         content_tag(:i, "", class: "mdi mdi-content-copy"),
-  #         class: "btn btn-icon btn-success btn-round btn-sm",
-  #         disabled: ""
-  #       )
-  #   end
-  # end
 end
