@@ -31,7 +31,7 @@ defmodule AdminStuff.MixProject do
   defp deps do
     [
       {:phoenix_html, "~> 2.11"},
-      {:cloudex, "~> 1.3"},
+      {:cloudex, github: "marceldegraaf/cloudex"},
       {:ecto_sql, "~> 3.1"},
       {:gettext, "~> 0.11"},
       {:canada, "~> 2.0"},
