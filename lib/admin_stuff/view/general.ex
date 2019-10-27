@@ -72,4 +72,7 @@ defmodule AdminStuff.View.General do
     end
   end
 
+  def name(%{first_name: first, last_name: last}) do
+    "#{first} #{last}"
+  end
 end
