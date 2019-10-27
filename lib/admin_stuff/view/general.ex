@@ -72,7 +72,7 @@ defmodule AdminStuff.View.General do
     end
   end
 
-  def name(%{first_name: first, last_name: last} = _user) do
+  def full_user_name(%{first_name: first, last_name: last} = _user) do
     "#{first} #{last}"
   end
 end
