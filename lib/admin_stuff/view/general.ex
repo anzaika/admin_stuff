@@ -35,7 +35,7 @@ defmodule AdminStuff.View.General do
             content_tag(:i, Gettext.gettext("Edit"), class: "mdi mdi-pencil"),
             class: "btn btn-icon btn-info btn-round btn-sm",
             phx_click: "edit",
-            phx_value_id: entity.id
+            phx_value_id: unquote(entity).id
           )
 
         _ ->
@@ -58,7 +58,7 @@ defmodule AdminStuff.View.General do
             content_tag(:i, "", class: "mdi mdi-content-copy"),
             class: "btn btn-icon btn-success btn-round btn-sm",
             phx_click: "copy",
-            phx_value_id: entity.id
+            phx_value_id: unquote(entity).id
           )
 
         _ ->
