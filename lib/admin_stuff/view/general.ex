@@ -1,6 +1,7 @@
 defmodule AdminStuff.View.General do
   use Phoenix.HTML
   import Canada.Can, only: [can?: 3]
+  import AdminStuff.View.DateTime
 
   defmacro lv_delete_btn(entity, current_user) do
     quote do
