@@ -2,6 +2,7 @@ defmodule AdminStuff.View.General do
   use Phoenix.HTML
   import Canada.Can, only: [can?: 3]
   import AdminStuff.View.DateTime
+  import AdminStuff.View.User
 
   defmacro lv_delete_btn(entity, current_user) do
     quote do
@@ -73,7 +74,4 @@ defmodule AdminStuff.View.General do
     end
   end
 
-  def full_user_name(%{first_name: first, last_name: last} = _user) do
-    "#{first} #{last}"
-  end
 end
