@@ -8,11 +8,11 @@ defmodule AdminStuff.View.General do
         true ->
           content_tag(
             :button,
-            content_tag(:i, gettext("Delete"), class: "mdi mdi-delete"),
+            content_tag(:i, "", class: "mdi mdi-delete"),
             class: "btn btn-icon btn-danger btn-round btn-sm",
             phx_click: "delete",
             phx_value_id: unquote(entity).id,
-            data_confirm: gettext("Are you sure?")
+            data_confirm: gettext("This will trigger removal. Are you sure?")
           )
 
         _ ->
@@ -32,7 +32,7 @@ defmodule AdminStuff.View.General do
         true ->
           content_tag(
             :button,
-            content_tag(:i, Gettext.gettext("Edit"), class: "mdi mdi-pencil"),
+            content_tag(:i, "", class: "mdi mdi-pencil"),
             class: "btn btn-icon btn-info btn-round btn-sm",
             phx_click: "edit",
             phx_value_id: unquote(entity).id
