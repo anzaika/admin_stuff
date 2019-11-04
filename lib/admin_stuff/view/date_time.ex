@@ -11,9 +11,19 @@ defmodule AdminStuff.View.DateTime do
     end
   end
 
-  defmacro format_time(time, opts \\ []) do
+  defmacro format_time(time, opts \\ [])
+
+  defmacro format_time(nil, _opts) do
+    quote do
+      unquote("")
+    end
+  end
+
+  defmacro format_time(time, opts) do
     quote do
       unquote(time) |> Cldr.Time.to_string(unquote(opts)) |> elem(1)
     end
   end
+
+
 end
