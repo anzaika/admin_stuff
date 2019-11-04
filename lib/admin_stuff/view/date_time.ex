@@ -10,4 +10,10 @@ defmodule AdminStuff.View.DateTime do
       unquote(date) |> Cldr.DateTime.to_string(locale: unquote(locale)) |> elem(1)
     end
   end
+
+  defmacro format_time(time, opts \\ []) do
+    quote do
+      unquote(time) |> Cldr.Time.to_string(unquote(opts)) |> elem(1)
+    end
+  end
 end
