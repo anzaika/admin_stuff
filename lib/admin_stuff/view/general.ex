@@ -11,6 +11,7 @@ defmodule AdminStuff.View.General do
             :button,
             content_tag(:i, "", class: "mdi mdi-delete"),
             class: "btn btn-icon btn-danger btn-round btn-sm",
+            type: :button,
             phx_click: "delete",
             phx_value_id: unquote(entity).id,
             data_confirm: gettext("This will trigger removal. Are you sure?")
@@ -35,6 +36,7 @@ defmodule AdminStuff.View.General do
             :button,
             content_tag(:i, "", class: "mdi mdi-pencil"),
             class: "btn btn-icon btn-info btn-round btn-sm",
+            type: :button,
             phx_click: "edit",
             phx_value_id: unquote(entity).id
           )
