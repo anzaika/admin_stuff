@@ -74,4 +74,27 @@ defmodule AdminStuff.View.General do
       end
     end
   end
+
+  defmacro lv_show_btn(entity, current_user) do
+    quote do
+      case can?(unquote(current_user), :copy, unquote(entity)) do
+        true ->
+          content_tag(
+            :button,
+            content_tag(:i, "", class: "mdi mdi-eye"),
+            class: "btn btn-icon btn-success btn-round btn-sm",
+            phx_click: "show",
+            phx_value_id: unquote(entity).id
+          )
+
+        _ ->
+          content_tag(
+            :button,
+            content_tag(:i, "", class: "mdi mdi-eye"),
+            class: "btn btn-icon btn-success btn-round btn-sm",
+            disabled: ""
+          )
+      end
+    end
+  end
 end
