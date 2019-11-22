@@ -1,15 +1,14 @@
 defmodule AdminStuff.LiveView.General do
   defmacro mounts(function) do
     quote do
-      def mount(session, socket) do
-        Map.get(session, :locale, "en") |> Gettext.put_locale()
+      def mount(assigns, socket) do
+        Gettext.put_locale(locale)
+        {:ok, apply(unquote(function), [assign(socket, assigns)])}
+      end
 
-        socket = assign(socket, session |> Map.to_list())
-
-        {
-          :ok,
-          apply(unquote(function), [socket])
-        }
+      def mount(assigns, socket) do
+        assigns = Map.put_new_lazy(assigns, :locale, &Gettext.get_locale/0)
+        {:ok, apply(unquote(function), [assign(socket, assigns)])}
       end
     end
   end

@@ -24,13 +24,11 @@ defmodule AdminStuff.Action.UploadAvatar do
   end
 
   defp upload_new_avatar(user, path) do
-    path 
-    |> Cloudex.upload(
-      %{
-        folder: "avatars",
-        tags: ["avatar", "##{user.id}"],
-        preset: "avatar"
-      }
-    )
+    path
+    |> Cloudex.upload(%{
+      folder: "avatars",
+      tags: ["avatar", "##{user.id}"],
+      preset: "avatar"
+    })
   end
 end
