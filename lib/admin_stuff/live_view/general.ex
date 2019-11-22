@@ -1,7 +1,7 @@
 defmodule AdminStuff.LiveView.General do
   defmacro mounts(function) do
     quote do
-      def mount(assigns, socket) do
+      def mount(%{locale: locale} = assigns, socket) do
         Gettext.put_locale(locale)
         {:ok, apply(unquote(function), [assign(socket, assigns)])}
       end
