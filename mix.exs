@@ -32,8 +32,8 @@ defmodule AdminStuff.MixProject do
     [
       {:phoenix_html, "~> 2.11"},
       {:cloudex, github: "marceldegraaf/cloudex"},
-      {:ecto_sql, "~> 3.1"},
-      {:gettext, "~> 0.11"},
+      {:ecto_sql, "~> 3.4"},
+      {:gettext, "~> 0.18"},
       {:canada, "~> 2.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
